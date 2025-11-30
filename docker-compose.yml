@@ -1,0 +1,12 @@
+services:
+  usgs_exporter:
+    build: ./
+    container_name: usgs_exporter
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./usgs_gauges.yaml:/config/usgs_gauges.yaml
+
